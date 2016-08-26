@@ -23,6 +23,7 @@ import javax.xml.transform.stream.StreamResult;
 import org.apache.commons.io.IOUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Value;
 import org.w3c.dom.Document;
 import org.w3c.dom.Element;
 import org.w3c.dom.Node;
@@ -48,7 +49,8 @@ import org.w3c.dom.Node;
 
 public class MessageEncoder {
 	private static final Logger logger = LoggerFactory.getLogger(MessageEncoder.class);
-	private static String CITY_GUIDE_URL = "http://service.probki.net/xmltrack/api/nytrack";
+	@Value("#{mainSettings['cityguide.url']}")
+	private String CITYGUIDE_URL = "http://service.probki.net/xmltrack/api/nytrack";
 
 	public void encode(String imei, String[] lines) {
 		try {
@@ -144,7 +146,7 @@ public class MessageEncoder {
 		String raw = nodeToString(doc.getFirstChild());
 		logger.debug(raw);
 
-		URL url = new URL(CITY_GUIDE_URL);
+		URL url = new URL(CITYGUIDE_URL);
 		HttpURLConnection connection = (HttpURLConnection) url.openConnection();
 		connection.setRequestMethod("POST");
 		connection.setRequestProperty("Content-Type", "text/plain");

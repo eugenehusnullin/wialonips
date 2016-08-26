@@ -1,29 +1,29 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Configuration status="WARN">
 	<Appenders>
-		<RollingFile name="allAppender" append="false" fileName="logs/wialonIps/all.log"
-			filePattern="logs/wialonIps/all-%d{yyyy-MM-dd}-%i.log.gz">
+		<RollingFile name="allAppender" append="false" fileName="logs/wialonips/all.log"
+			filePattern="logs/wialonips/all-%d{yyyy-MM-dd}-%i.log.gz">
 			<PatternLayout pattern="%d{HH:mm:ss.SSS} [%t] %-5level %logger{36} - %msg%n" />
 			<Policies>
 				<TimeBasedTriggeringPolicy />
 			</Policies>
 		</RollingFile>
-		<RollingFile name="errorAppender" append="false" fileName="logs/wialonIps/error.log"
-			filePattern="logs/wialonIps/error-%d{yyyy-MM-dd}-%i.log.gz">
+		<RollingFile name="errorAppender" append="false" fileName="logs/wialonips/error.log"
+			filePattern="logs/wialonips/error-%d{yyyy-MM-dd}-%i.log.gz">
 			<PatternLayout pattern="%d{HH:mm:ss.SSS} [%t] %-5level %logger{36} - %msg%n" />
 			<Policies>
 				<TimeBasedTriggeringPolicy />
 			</Policies>
 		</RollingFile>
-		<RollingFile name="inAppender" append="false" fileName="logs/wialonIps/in.log"
-			filePattern="logs/wialonIps/in-%d{yyyy-MM-dd}-%i.log.gz">
+		<RollingFile name="inAppender" append="false" fileName="logs/wialonips/in.log"
+			filePattern="logs/wialonips/in-%d{yyyy-MM-dd}-%i.log.gz">
 			<PatternLayout pattern="%d{HH:mm:ss.SSS} [%t] %-5level %logger{36} - %msg%n" />
 			<Policies>
 				<TimeBasedTriggeringPolicy />
 			</Policies>
 		</RollingFile>
-		<RollingFile name="outAppender" append="false" fileName="logs/wialonIps/out.log"
-			filePattern="logs/wialonIps/out-%d{yyyy-MM-dd}-%i.log.gz">
+		<RollingFile name="outAppender" append="false" fileName="logs/wialonips/out.log"
+			filePattern="logs/wialonips/out-%d{yyyy-MM-dd}-%i.log.gz">
 			<PatternLayout pattern="%d{HH:mm:ss.SSS} [%t] %-5level %logger{36} - %msg%n" />
 			<Policies>
 				<TimeBasedTriggeringPolicy />

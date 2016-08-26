@@ -8,7 +8,7 @@ repositories {
 
 jar {
     manifest {
-        attributes 'Implementation-Title': 'WialonIps',
+        attributes 'Implementation-Title': 'wialonips',
                    'Implementation-Version': version
     }
 }
