@@ -148,19 +148,23 @@ public class MessageEncoder {
 
 		URL url = new URL(CITYGUIDE_URL);
 		HttpURLConnection connection = (HttpURLConnection) url.openConnection();
-		connection.setRequestMethod("POST");
-		connection.setRequestProperty("Content-Type", "text/plain");
-		connection.setDoOutput(true);
-		IOUtils.write(raw, connection.getOutputStream(), "UTF-8");
-		connection.getOutputStream().flush();
-		connection.getOutputStream().close();
+		try {
+			connection.setRequestMethod("POST");
+			connection.setRequestProperty("Content-Type", "text/plain");
+			connection.setDoOutput(true);
+			IOUtils.write(raw, connection.getOutputStream(), "UTF-8");
+			connection.getOutputStream().flush();
+			connection.getOutputStream().close();
 
-		if (connection.getResponseCode() != 200) {
-			String reason = IOUtils.toString(connection.getInputStream());
-			logger.warn("CityGuideHandler error send point. Error code=" + connection.getResponseCode() + ", reason: "
-					+ reason);
+			if (connection.getResponseCode() != 200) {
+				String reason = IOUtils.toString(connection.getInputStream());
+				logger.warn(
+						"CityGuideHandler error send point. Error code=" + connection.getResponseCode() + ", reason: "
+								+ reason);
+			}
+		} finally {
+			connection.disconnect();
 		}
-		connection.disconnect();
 	}
 
 	private String nodeToString(Node node) throws TransformerFactoryConfigurationError, TransformerException {
